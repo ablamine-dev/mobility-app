@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "frontend" {
-  name                 = "mobility-frontend"
+  name                 = "${var.project_name}-frontend"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
@@ -7,7 +7,7 @@ resource "aws_ecr_repository" "frontend" {
   }
 
   tags = {
-    Project   = "mobility"
+    Project   = var.project_name
     ManagedBy = "terraform"
   }
 }
