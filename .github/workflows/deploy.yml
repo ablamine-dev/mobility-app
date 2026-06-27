@@ -41,5 +41,5 @@ jobs:
         run: |
           aws ecs update-service \
             --cluster mobility-cluster-ecs \
-            --service mobility-backend-service \
+            --service mobility-backend-task-service-qhfbxi20 \
             --force-new-deployment
