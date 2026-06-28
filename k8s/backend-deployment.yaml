@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mobility-backend
+  labels:
+    app: mobility-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mobility-backend
+  template:
+    metadata:
+      labels:
+        app: mobility-backend
+    spec:
+      containers:
+        - name: mobility-backend
+          image: mobility-backend:local
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          env:
+            - name: PORT
+              value: "5000"
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mobility-secrets
+                  key: MONGO_URI
