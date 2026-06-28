@@ -9,3 +9,9 @@ variable "project_name" {
   type        = string
   default     = "mobility"
 }
+
+variable "mongo_uri" {
+  description = "Chaîne de connexion MongoDB Atlas (secret)"
+  type        = string
+  sensitive   = true
+}
